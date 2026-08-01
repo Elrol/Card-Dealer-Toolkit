@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Set Definition Schema",
+    "type": "object",
+    "required": [
+        "gameID",
+        "setID",
+        "name",
+        "icon",
+        "frame",
+        "cards",
+        "packs"
+    ],
+    "properties": {
+        "gameID": {
+        "type": "string",
+        "description": "The unique ID linking this set to its base game context (e.g., 'core')."
+        },
+        "setID": {
+        "type": "string",
+        "description": "The exact lowercase identifier code for this collection directory (e.g., 'first')."
+        },
+        "name": {
+        "type": "string",
+        "description": "The clean display name of this set."
+        },
+        "icon": {
+        "type": "string",
+        "description": "The relative file path to the texture graphic representing this set's expansion logo."
+        },
+        "frame": {
+        "type": "string",
+        "description": "The standard border asset texture path used as the default frame fallback for all cards assigned to this set."
+        },
+        "cards": {
+        "type": "array",
+        "description": "A list of string IDs indicating all card definition files assigned to this collection.",
+        "items": { "type": "string" }
+        },
+        "packs": {
+        "type": "array",
+        "description": "A list of string IDs indicating booster pack variations associated with this set.",
+        "items": { "type": "string" }
+        }
+    }
+}

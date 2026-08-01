@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Pack Definition Schema",
+    "type": "object",
+    "required": [
+        "gameID",
+        "setID",
+        "packID",
+        "name",
+        "front",
+        "back",
+        "color",
+        "contents"
+    ],
+    "properties": {
+        "gameID": {
+        "type": "string",
+        "description": "The unique ID linking this pack to its base game engine context (e.g., 'core')."
+        },
+        "setID": {
+        "type": "string",
+        "description": "The lowercase ID of the card set this pack pulls from."
+        },
+        "packID": {
+        "type": "string",
+        "description": "The unique internal identification code for this specific pack/booster profile."
+        },
+        "name": {
+        "type": "string",
+        "description": "The user-facing display name printed on the shop wrapper interface."
+        },
+        "front": {
+        "type": "string",
+        "description": "The relative file path to the booster pack wrapper's front texture asset."
+        },
+        "back": {
+        "type": "string",
+        "description": "The relative file path to the booster pack wrapper's back texture asset."
+        },
+        "color": {
+        "type": "object",
+        "description": "The RGB color values used by the game engine to tint background glows or text elements.",
+        "required": ["red", "green", "blue"],
+        "properties": {
+            "red": { "type": "integer", "minimum": 0, "maximum": 255 },
+            "green": { "type": "integer", "minimum": 0, "maximum": 255 },
+            "blue": { "type": "integer", "minimum": 0, "maximum": 255 }
+        }
+        },
+        "contents": {
+        "type": "array",
+        "description": "The weighted distribution pool of cards obtainable from this pack. Can be left empty ([]) but the key must be present.",
+        "items": {
+            "type": "object",
+            "required": ["cardID", "weight"],
+            "properties": {
+            "cardID": {
+                "type": "string",
+                "description": "The internal string ID of the target card."
+            },
+            "weight": {
+                "type": "number",
+                "minimum": 0,
+                "description": "The relative pull weight determining gacha drop rates for this card inside the pack."
+            }
+            }
+        }
+        }
+    }
+}

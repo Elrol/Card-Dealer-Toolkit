@@ -1,0 +1,23 @@
+{
+    "iconDefinitions": {
+        "card_icon": { "iconPath": "./images/card.svg" },
+        "set_icon": { "iconPath": "./images/set.svg" },
+        "pack_icon": { "iconPath": "./images/pack.svg" },
+        "game_icon": { "iconPath": "./images/game.svg" },
+        "manifest_icon": { "iconPath": "./images/manifest.svg" },
+        "texture_icon": { "iconPath": "./images/texture.svg" }
+    },
+    "fileExtensions": {
+        "card": "card_icon",
+        "set": "set_icon",
+        "pack": "pack_icon",
+        "game": "game_icon",
+        "png": "texture_icon",
+        "jpg": "texture_icon",
+        "jpeg": "texture_icon",
+        "bmp": "texture_icon"
+    },
+    "fileNames": {
+        "pack.manifest": "manifest_icon"
+    }
+}

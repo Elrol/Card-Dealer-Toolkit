@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Pack Manifest Schema",
+    "type": "object",
+    "required": [
+        "id",
+        "name",
+        "author"
+    ],
+    "properties": {
+        "id": {
+        "type": "string",
+        "description": "The global unique data pack registry identifier code."
+        },
+        "name": {
+        "type": "string",
+        "description": "The clean descriptive name of the content pack shown in the mod manager layer."
+        },
+        "author": {
+        "type": "string",
+        "description": "The developer alias/studio profile string credit responsible for constructing this data pack asset."
+        }
+    }
+}

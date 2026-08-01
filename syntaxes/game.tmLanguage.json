@@ -1,0 +1,9 @@
+{
+    "name": "Game Definition",
+    "scopeName": "source.game",
+    "patterns": [
+        {
+            "include": "source.json"
+        }
+    ]
+}

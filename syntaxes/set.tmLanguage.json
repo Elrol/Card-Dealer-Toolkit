@@ -1,0 +1,9 @@
+{
+    "name": "Set Definition",
+    "scopeName": "source.set",
+    "patterns": [
+        {
+            "include": "source.json"
+        }
+    ]
+}

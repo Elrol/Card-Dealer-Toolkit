@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Game Definition Schema",
+    "type": "object",
+    "required": [
+        "gameID",
+        "name",
+        "icon",
+        "back",
+        "sets",
+        "height",
+        "width",
+        "depth",
+        "cost"
+    ],
+    "properties": {
+        "gameID": {
+        "type": "string",
+        "description": "The master ID defining this entire custom game ruleset."
+        },
+        "name": {
+        "type": "string",
+        "description": "The user-facing title of the card game system."
+        },
+        "icon": {
+        "type": "string",
+        "description": "The file path to the game mode's main hub preview icon."
+        },
+        "back": {
+        "type": "string",
+        "description": "The universal fallback card-back texture path utilized across the entire game engine unless a card explicitly overwrites it."
+        },
+        "sets": {
+        "type": "array",
+        "description": "Array list of all expansion set IDs registered and loaded beneath this core umbrella.",
+        "items": { "type": "string" }
+        },
+        "height": {
+        "type": "number",
+        "description": "The precise physical 3D vertical bounds scale multiplier of a card token mesh on the playing surface."
+        },
+        "width": {
+        "type": "number",
+        "description": "The precise physical 3D horizontal cross-section bounds scale multiplier of a card token mesh."
+        },
+        "depth": {
+        "type": "number",
+        "description": "The card thickness scale value on the Z-axis, determining standard deck stack limits."
+        },
+        "cost": {
+        "type": "number",
+        "minimum": 0,
+        "description": "The gold or currency premium purchase multiplier price tier baseline for this rule set container."
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Card Definition",
+    "scopeName": "source.card",
+    "patterns": [
+        {
+            "include": "source.json"
+        }
+    ]
+}

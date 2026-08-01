@@ -1,0 +1,8 @@
+{
+    "brackets": [["{", "}"], ["[", "]"]],
+    "autoClosePairs": [
+        {"open": "{", "close": "}"},
+        {"open": "[", "close": "]"},
+        {"open": "/", "close": "/"}
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Card Definition Schema",
+    "type": "object",
+    "required": [
+        "gameID",
+        "setID",
+        "cardID",
+        "name",
+        "cost",
+        "face",
+        "frame",
+        "values",
+        "effects"
+    ],
+    "properties": {
+        "gameID": {
+            "type": "string",
+            "description": "The unique ID linking this card to its base game engine context (e.g., 'core')."
+        },
+        "setID": {
+            "type": "string",
+            "description": "The lowercase ID of the card set this asset belongs to."
+        },
+        "cardID": {
+            "type": "string",
+            "description": "The unique identification string/index for this card profile."
+        },
+        "name": {
+            "type": "string",
+            "description": "The display name printed on the card face."
+        },
+        "cost": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The resources or energy cost required to play this card."
+        },
+        "face": {
+            "type": "string",
+            "description": "The relative path to the card face art texture graphic asset."
+        },
+        "frame": {
+            "type": "string",
+            "description": "The frame texture path override. Must be present, but can be left blank (\"\") to inherit the Set's default frame fallback."
+        },
+        "values": {
+            "type": "object",
+            "description": "The table of card value names and values"
+        },
+        "effects": {
+            "type": "array",
+            "description": "The array of card effect names"
+        }
+    }
+}

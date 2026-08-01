@@ -1,0 +1,9 @@
+{
+    "name": "Pack Definition",
+    "scopeName": "source.pack",
+    "patterns": [
+        {
+            "include": "source.json"
+        }
+    ]
+}

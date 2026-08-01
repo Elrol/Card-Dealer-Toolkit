@@ -1,0 +1,248 @@
+{
+  "name": "card-dealer-toolkit",
+  "displayName": "Card Dealer Toolkit",
+  "publisher": "arrowsend-studio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Elrol/Card-Dealer-Toolkit.git"
+  },
+  "description": "Development tools and data pack automation for Card Dealer",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.120.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cardDealer.createNewGame",
+        "title": "New Game Definition",
+        "icon": {
+          "dark": "./fileicons/images/game.svg",
+          "light": "./fileicons/images/game.svg"
+        }
+      },
+      {
+        "command": "cardDealer.createNewSet",
+        "title": "New Set Definition",
+        "icon": {
+          "dark": "./fileicons/images/set.svg",
+          "light": "./fileicons/images/set.svg"
+        }
+      },
+      {
+        "command": "cardDealer.createNewPack",
+        "title": "New Pack Definition",
+        "icon": {
+          "dark": "./fileicons/images/pack.svg",
+          "light": "./fileicons/images/pack.svg"
+        }
+      },
+      {
+        "command": "cardDealer.createNewCard",
+        "title": "New Card Definition",
+        "icon": {
+          "dark": "./fileicons/images/card.svg",
+          "light": "./fileicons/images/card.svg"
+        }
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "cardDealer.createNewGame",
+          "group": "2_new",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "cardDealer.createNewSet",
+          "group": "2_new",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "cardDealer.createNewPack",
+          "group": "2_new",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "cardDealer.createNewCard",
+          "group": "2_new",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "id": "card",
+        "aliases": [
+          "Card Definition",
+          "card"
+        ],
+        "extensions": [
+          ".card"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "pack",
+        "aliases": [
+          "Pack Definition",
+          "pack"
+        ],
+        "extensions": [
+          ".pack"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "set",
+        "aliases": [
+          "Set Definition",
+          "set"
+        ],
+        "extensions": [
+          ".set"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "game",
+        "aliases": [
+          "Game Definition",
+          "game"
+        ],
+        "extensions": [
+          ".game"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "manifest",
+        "aliases": [
+          "Pack Manifest",
+          "manifest"
+        ],
+        "extensions": [
+          ".manifest"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "card",
+        "scopeName": "source.card",
+        "path": "./syntaxes/card.tmLanguage.json"
+      },
+      {
+        "language": "pack",
+        "scopeName": "source.pack",
+        "path": "./syntaxes/pack.tmLanguage.json"
+      },
+      {
+        "language": "set",
+        "scopeName": "source.set",
+        "path": "./syntaxes/set.tmLanguage.json"
+      },
+      {
+        "language": "game",
+        "scopeName": "source.game",
+        "path": "./syntaxes/game.tmLanguage.json"
+      },
+      {
+        "language": "manifest",
+        "scopeName": "source.manifest",
+        "path": "./syntaxes/manifest.tmLanguage.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "card-dealer-icons",
+        "label": "Card Dealer Toolkit Icons",
+        "path": "./fileicons/card-dealer-icons.json"
+      }
+    ],
+    "jsonValidation": [
+      {
+        "fileMatch": [
+          "**/cards/*.card",
+          "**/cards/**/*.card"
+        ],
+        "url": "./schemas/card.schema.json"
+      },
+      {
+        "fileMatch": [
+          "**/packs/*.pack",
+          "**/packs/**/*.pack"
+        ],
+        "url": "./schemas/pack.schema.json"
+      },
+      {
+        "fileMatch": [
+          "**/sets/*.set",
+          "**/sets/**/*.set"
+        ],
+        "url": "./schemas/set.schema.json"
+      },
+      {
+        "fileMatch": [
+          "**/games/*.game",
+          "**/games/**/*.game"
+        ],
+        "url": "./schemas/game.schema.json"
+      },
+      {
+        "fileMatch": "**/pack.manifest",
+        "url": "./schemas/manifest.schema.json"
+      }
+    ],
+    "configurationDefaults": {
+      "files.associations": {
+        "*.card": "json",
+        "*.set": "json",
+        "*.pack": "json",
+        "*.game": "json",
+        "pack.manifest": "json"
+      },
+      "[json]": {
+        "editor.quickSuggestions": {
+          "strings": true,
+          "other": true,
+          "comments": false
+        },
+        "editor.suggestOnTriggerCharacters": true
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.120.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.27.3",
+    "eslint": "^9.39.3",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  }
+}
